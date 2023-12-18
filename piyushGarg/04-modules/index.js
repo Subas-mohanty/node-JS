@@ -1,4 +1,10 @@
-// const math=require("buffer")
+// const math=require("buffer") // built in module buffer
+
+
+// const add=require("./math")
+// console.log(add(2,3))
+
+
 const {add,sub,product, divide}=require("../math")
 
 // console.log(math);

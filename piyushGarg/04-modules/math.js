@@ -4,13 +4,13 @@ function add(a,b){
 function sub(a,b){
     return a - b;
 }
-// module.exports=add;
+module.exports=add;
 // module.exports=sub; // this is wrong , this will override the add function export, so to solve this we can do something like this , by passing them as objects
 
-module.exports={
-    add,
-    sub
-};
+// module.exports={
+//     add,
+//     sub
+// };
 
 // or we can export like this
 

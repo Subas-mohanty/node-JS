@@ -3,6 +3,7 @@ const fs=require("fs"); // built in module
 // create and write to a file
 
 // synchronous... will learn on next lecture
+
 // fs.writeFileSync("./random.txt","hello, i'm created using fs");
 
 // asynchronous... 
