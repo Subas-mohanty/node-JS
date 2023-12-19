@@ -3,10 +3,13 @@ const fs=require("fs");
 
 console.log(os.cpus().length); // No. of core the cpu has
 
-// sync... blocking. It is not good, we have to avoid it
+// sync... blocking. Blocking means it will block the exeucution of below codes. It is not good, we have to avoid it
+
 // console.log(1);
 // const result=fs.readFileSync("./random2.txt","utf-8");
 // console.log(result);
+// fs.writeFileSync('./this.txt', "i am blocking");
+// fs.unlinkSync('./this.txt');
 // console.log(2);
 
 // Async... non-blocking. It is better than sync

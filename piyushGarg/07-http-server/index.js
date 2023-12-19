@@ -3,17 +3,21 @@ const fs = require("fs"); // fs to work with file system
 
 // creating our own server using createServer function
 const myServer = http.createServer((req, res) => {
-  const log = `${Date.now()}: New request received\n`;
+  const log = `${Date.now()}: ${req.url} New request received\n`;
+
   fs.appendFile("./log.txt", log, (err, data) => {
-    switch (req.url) {
-      case "/":
-        res.end("HomePage");
+    switch(req.url){
+      case "/" :
+        res.end("HomePage")
         break;
       case "/about":
-        res.end("Hii i am subas mohanty");
+        res.end("I am subas mohanty")
+        break;
+      case "/contact":
+        res.end("You can't contact me , i am anonymous")
         break;
       default:
-        res.end("404 not found");
+        res.end("404 Not found")
     }
   });
 });
