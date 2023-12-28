@@ -1,3 +1,6 @@
+// https://expressjs.com/en/guide/using-middleware.html
+
+
 const express = require("express");
 const fs = require("fs")
 const users = require("./MOCK_DATA.json"); // sample user data from a json file
@@ -5,10 +8,38 @@ const app = express();
 const PORT = 8000;
 
 // to accept form data, it's a middleware, will learn about it in next video
-app.use(express.urlencoded({extended: "false"}));
+app.use(express.urlencoded({extended: "false"})
+// internally it does something like this:-
+// req.body = <data after parsing>;
+// and the body passed to next middleware and in the end we can use it in the route
+);
+
+// custom middleware
+
+app.use((req, res, next)=>{
+    console.log("hello from middleware 1")
+    // if we make any changes to the req object that will be passed to next middleware or route
+    req.myName = "subas";
+    // return res.json({msg:"hello buddy, you are blocked to see the users "}) // this will not allow the client to see the result. because this middleware returns from here
+
+    // if we leave it like this it will still not give the results because it will not pass the request to next middleware or route, if any middleware is not present then it calls the route. To do so we use a next function
+
+    next();
+});
+
+app.use((req, res, next)=>{
+    console.log("hello from middleware 2 and my name is", req.myName)
+    
+    // we will create a log file as we created while using http 
+
+    fs.appendFile("./log.txt", `\n${Date.now()} : ${req.method} : ${req.path}`, (err, data)=>{
+        next();
+    })
+})
 
 // routes
 app.get("/users", (req, res) => {
+    console.log("hello man i am", req.myName)
     // creating an html document to show user first name
   const html = `
           <ul>
