@@ -1,0 +1,14 @@
+REST API - JSON
+
+GET /users - HTML Docuemnt Render --> this will send html, for browser
+GET /api/users - List all users JSON - Done --> this will send json for mobile or any smart device
+
+
+GET /api/users/1 - Get the user with ID 1
+GET /api/users/2 - Get the user with ID 2
+
+POST /api/users - Create new user
+
+PATCH /api/users/1 - Edit the user with ID 1
+
+DELETE/api/users/1 - delete user wieth ID 1
