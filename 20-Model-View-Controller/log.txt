@@ -1,0 +1,15 @@
+
+1704189647392 : GET : /api/users/
+1704189663459 : POST : /api/users/
+1704189965874 : POST : /api/users/
+1704189978556 : POST : /api/users/
+1704190119535 : POST : /api/users/
+1704190188303 : POST : /api/users/
+1704190194956 : POST : /api/users/
+1704190363579 : POST : /api/users/
+1704190370294 : POST : /api/users/
+1704190412604 : POST : /api/users/
+1704190416691 : GET : /api/users/
+1704190440448 : PATCH : /api/users/6593e1a28deb79c2fcca30fc
+1704190454148 : GET : /api/users/
+1704190463865 : DELETE : /api/users/6593e1a28deb79c2fcca30fc
