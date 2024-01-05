@@ -8,8 +8,8 @@ router.post("/url",handleGenerateNewShortURL);
 
 router.get("/:shortId", handleAddAnalytics);
 
-router.delete("/:shortId", handleDeleteEntry);
-
 // get analytics on get request
 router.get("/analytics/:shortId", handleGetAnalytics);
+
+router.delete("/:shortId", handleDeleteEntry)
 module.exports = router;

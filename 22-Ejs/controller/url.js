@@ -4,7 +4,7 @@ const shortid = require("short-id");
 // invokes on post request
 async function handleGenerateNewShortURL(req, res) {
   const body = req.body;
-  //   console.log(body); // will print the url provided by the user
+    // console.log(body); // will print the url provided by the user
   if (!body.url) {
     return res.status(400).json({ err: "url is required" });
   }
@@ -15,7 +15,7 @@ async function handleGenerateNewShortURL(req, res) {
     redirectURL: body.url,
     visitHistory: [],
   });
-  return res.json({ id: shortId });
+  return res.render("home", {id : shortId});
 }
 
 // add entries in the database for the analytics
@@ -46,7 +46,6 @@ async function handleGetAnalytics(req, res) {
   // finding the user with the provided shortId in the database
   const result = await URL.findOne({ shortId });
   return res.json({
-    redirectURL: result.redirectURL,
     totalClicks: result.visitHistory.length,
     analytics: result.visitHistory,
   });
@@ -54,11 +53,12 @@ async function handleGetAnalytics(req, res) {
 
 async function handleDeleteEntry(req, res) {
   const shortId = req.params.shortId;
-  console.log(shortId);
+  // console.log(shortId);
   const entry = await URL.findOneAndDelete({ shortId });
-  console.log(entry);
+  // console.log(entry);
   return res.send(`short URL for ${entry.redirectURL} is deleted`);
 }
+
 module.exports = {
   handleGenerateNewShortURL,
   handleGetAnalytics,
