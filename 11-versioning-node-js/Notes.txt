@@ -22,7 +22,7 @@ express = ^4.18.2
 this caret symbol means that if we need to update than keep the 4 as stable and only update the 2nd and 3rd part. i.e, 
 if will update if latest version is between 4.18.2 --> 5.0.0
 
-^4.18.2 | 4.18.2 >< 5.0.0 |
+^4.18.2 { 4.18.2 > all updated version < 5.0.0 }
 ^4.17.9
 4.18.1
 4.18.2
